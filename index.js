@@ -17,8 +17,14 @@ mongoose
       res.send(usernames);
     });
 
+    app.get("/usernames/:count", async (req, res) => {
+      const usernames = req.params.count
+        ? await Username.find().limit(parseInt(req.params.count))
+        : await Username.find();
+      res.send(usernames);
+    });
+
     app.post("/usernames", async (req, res) => {
-      console.log(req.body);
       Username.create(req.body);
       const usernames = await Username.find();
       res.send(usernames);
