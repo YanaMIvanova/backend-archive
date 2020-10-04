@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 var cors = require("cors");
 
 const Username = require("./models/Username");
-const port = 6000;
+const port = 3002;
 
 mongoose
   .connect("mongodb://localhost:27017/archive", { useNewUrlParser: true })
